@@ -1,0 +1,88 @@
+{
+  "trip-planner": [
+    {
+      "whiskey":[
+        {
+          "type": "",
+          "flavor": "",
+          "age": "",
+          "price": "",
+          "origin": "",
+          "description": "",
+          "image": "",
+          "ratings": "",
+          "tour": [
+            {
+              "price": "",
+              "description": "",
+              "ratings": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "location": [
+        {
+          "region": "",
+          "country": "",
+          "city": "",
+          "description": "",
+          "image": "",
+          "lodging": [
+            {
+              "type": "",
+              "description": "",
+              "price": "",
+              "ratings": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "activities": [
+        {
+          "image": "",
+          "description": "",
+          "nature": [
+            {
+              "type": "",
+              "price": "",
+              "description": "",
+              "ratings": "",
+              "image": ""
+            }
+          ],
+          "history": [
+            {
+              "type": "",
+              "price": "",
+              "description": "",
+              "ratings": "",
+              "image": ""
+            }
+          ],
+          "amusement": [
+            {
+              "type": "",
+              "price": "",
+              "description": "",
+              "ratings": "",
+              "image": ""
+            }
+          ],
+          "food": [
+            {
+              "type": "",
+              "price": "",
+              "description": "",
+              "ratings": "",
+              "image": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

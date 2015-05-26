@@ -1,0 +1,46 @@
+@font-face {
+    font-family: 'rosarivo-regular';
+    src: url('Rosarivo-Regular.otf');
+}
+@font-face {
+    font-family: 'open-sans';
+    src: url('OpenSans-Regular.ttf');
+}
+h2 {
+    color: #303030;
+}
+p {
+    padding-top: 90px;
+    padding-left: 70px;
+    color: #efefef;
+}
+#color-one {
+    background-color: #494ea7;
+    height: 200px;
+    width: 200px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+}
+#color-two {
+    background-color: #f0c753;
+    height: 200px;
+    width: 200px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+}
+#color-three{
+    background-color: #303030;
+    height: 200px;
+    width: 200px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+}
+#font-one {
+    font-family: rosarivo-regular, serif;
+}
+#font-two {
+    font-family: open-sans, sans-serif;
+}
