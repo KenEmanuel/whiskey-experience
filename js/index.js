@@ -3,13 +3,11 @@
  */
 $(function() {
     $( "#accordion" ).accordion({ active: false , collapsible: true });
-});
-
-$(function() {
     $('a #accordion').on('click', function(){
-        $('div #accordion').removeAttribute('display: none');
+        $('div #accordion').removeAttribute('.hidden');
     })
 });
+
 //example of posting JSON data to page. Do not use for final code
 var tours = {
     "whiskey": [
