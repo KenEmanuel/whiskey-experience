@@ -2,10 +2,27 @@
  * Created by ken on 5/26/15.
  */
 $(function() {
-    $( "#accordion" ).accordion({ active: false , collapsible: true });
-    $('a #accordion').on('click', function(){
-        $('div #accordion').removeAttribute('.hidden');
-    })
+    var state = true;
+    $( "#button" ).click(function() {
+        if ( state ) {
+            $( "#effect").animate({
+                backgroundColor: "#fff",
+                color: "#000",
+                height: '100%'
+            }, 1000).toggle(function(){
+                $(this).children().show();
+            });
+        } else {
+            $( "#effect" ).animate({
+                backgroundColor: "#fff",
+                color: "#000",
+                height: 0
+            }, 1000).toggle(function(){
+                $(this).children().hide();
+            });
+        }
+        state = !state;
+    });
 });
 
 //example of posting JSON data to page. Do not use for final code
