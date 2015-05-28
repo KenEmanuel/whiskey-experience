@@ -8,15 +8,19 @@ $(function() {
     })
 });
 
-var db = $.ajax({
+$.ajax({
     url: "https://api.mongolab.com/api/1/databases/whiskey/collections/tuesday",
     data: {
         apiKey: "LVnHGETiXJi3beH77dTNrrgbN54PPtB1",
-        q: "{name: {$exists: true}}.sort({name: 1})"
+        q: "{name: 'Glinlevit'})"
+    },
+    success: function(data) {
+        $.each(data, function (i, data) {
+            $('h3').text(data.name);
+            $('#price').text(data.cost);
+            $('#type').text(data.type);
+        })
     }
 });
 
-//$.each(db.responseJSON, function(tour){
-//    console.log(tour.name);
-//});
-console.log(db);
+

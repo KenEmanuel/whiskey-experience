@@ -22,8 +22,9 @@
 </head>
 <body>
 <!-- Navigation -->
+<div class="container">
+<div class="row">
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-  <div class="container">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -49,14 +50,47 @@
       </ul>
     </div>
     <!-- /.navbar-collapse -->
-  </div>
+  </nav>
   <!-- /.container -->
-</nav>
+</div>
 <!-- Page Content -->
+  <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+      <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+      <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+      <div class="item active">
+        <img src="images/osaka.jpg" alt="...">
+        <div class="carousel-caption">
+        </div>
+      </div>
+      <div class="item">
+        <img src="images/hibiki-12.jpg" alt="...">
+        <div class="carousel-caption">
+        </div>
+      </div>
+    </div>
+
+    <!-- Controls -->
+    <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+
 <div class="container">
   <!-- Page Heading -->
   <div class="row">
-    <div class="col-lg-12">
+    <div class="col-md-12">
       <h1 class="page-header">Page Heading
         <small>Secondary Text</small>
       </h1>
@@ -67,24 +101,39 @@
   <div class="row">
     <div class="col-md-7">
       <a href="#">
-        <img class="img-responsive" src="http://placehold.it/700x300" alt="">
+        <img class="img-responsive" src="images/yamazaki-dist.jpg" alt="">
       </a>
     </div>
     <div class="col-md-5">
-      <h3>Hibiki</h3>
-      <h4>Type</h4>
-      <h4>Price</h4>
+      <h3></h3>
+      <h4 id="type"></h4>
+      <h4 id="price"></h4>
       <p>Description - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium veniam exercitationem expedita laborum at voluptate. Labore, voluptates totam at aut nemo deserunt rem magni pariatur quos perspiciatis atque eveniet unde.</p>
       <button><a id="button">View Tour</a></button>
     </div>
   </div>
-  <div class="toggler">
+  <div class="toggler well">
     <div id="effect" class="ui-widget-content ui-corner-all">
-
-        <h1>Hello</h1>
-        <br><br><br>
-        <h1>Yall</h1>
-
+      <div class="row">
+        <div class="col-md-6">
+          <img class="img-responsive" src="images/hibiki-12.jpg">
+          <h1>The Whiskey</h1>
+          <p>Colour:  Aurulent (Gold-Coloured) or Melichrous (Honey-like).  Maybe Luteous (Golden-yellow).</p>
+          <p> Nose:  Very fruity, with ripe oranges, apple pie, marmalade and plums (would I have still got those plums if I didn’t know about the plum liqueur maturation?  I’d like to hope so).  Fresh honeysuckle and nougat aromas, sugared almonds, sponge cake, icing sugar. Expressive and exciting.</p>
+          <p>Palate:  Smooth as a snooker ball, with delicious fresh grain, oak tannins and delicately sherried malt.  Some clove, pepper and mixed peel as the sherry comes forward.  The citrus is here as well, if slightly more tart like lemon or grapefruit.</p>
+          <p>Finish:  Spices, apple peel and the last remnants of the finely-tuned grain.  Nothing dominates, everything in place – the integration and balance are quite remarkable.  The spices seem to build in intensity at the finale.</p>
+          <p>Comments:  Slips down easier than a greased eel in an oilslick.  This is tremendous.  A hugely impressive feat of blending that proves, if there were any remaining doubt, that Japanese whisky can equal or beat anything produced in Scotland at this moment in time.</p>
+          <p>Bravo.</p>
+        </div>
+        <div class="col-md-6">
+          <img class="img-responsive" src="images/osaka.jpg">
+          <h1>The City</h1>
+          <p>Description - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium veniam exercitationem expedita laborum at voluptate. Labore, voluptates totam at aut nemo deserunt rem magni pariatur quos perspiciatis atque eveniet unde.</p>
+          <p>Description - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium veniam exercitationem expedita laborum at voluptate. Labore, voluptates totam at aut nemo deserunt rem magni pariatur quos perspiciatis atque eveniet unde.</p>
+          <p>Description - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium veniam exercitationem expedita laborum at voluptate. Labore, voluptates totam at aut nemo deserunt rem magni pariatur quos perspiciatis atque eveniet unde.</p>
+          <p>Description - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium veniam exercitationem expedita laborum at voluptate. Labore, voluptates totam at aut nemo deserunt rem magni pariatur quos perspiciatis atque eveniet unde.</p>
+        </div>
+      </div>
     </div>
   </div>
   <!-- /.row -->
@@ -92,12 +141,13 @@
   <!-- Footer -->
   <footer>
     <div class="row">
-      <div class="col-lg-12">
-        <p>Copyright &copy; Your Website 2014</p>
+      <div class="col-md-12">
+        <p>Copyright &copy; Kenneth Emanuel 2015</p>
       </div>
     </div>
     <!-- /.row -->
   </footer>
+</div>
 </div>
 <!-- /.container -->
 
