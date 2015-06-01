@@ -1,7 +1,6 @@
 /**
  * Created by ken on 5/26/15.
  */
-var tours;
 var getTours = function(toursOffset, numOfTours) {
     $.ajax({
         url: "https://api.mongolab.com/api/1/databases/whiskey/collections/whiskies",
@@ -12,46 +11,46 @@ var getTours = function(toursOffset, numOfTours) {
             l: numOfTours
         },
         success: function(data) {
-            return data;
+            displayTours(data);
         }
     });
 };
 
-
-
 var displayTours = function(data) {
-
     var IMAGE_PATH = 'images/';
     $.each(data, function (i, tour) {
-        var $distDiv = $(document.createElement('div'));
-        $distDiv.addClass('col-md-7 tour');
-        var $distA = $(document.createElement('a'));
-        $distA.attr('href', '#');
-        var $distImg = $(document.createElement('img'));
-        $distImg.addClass('img-responsive').attr('src', IMAGE_PATH + tour["distillery-image"]);
-        var $descriptionDiv = $(document.createElement('div'));
-        $descriptionDiv.addClass('col-md-5');
-        var $whiskeyH3 = $(document.createElement('h3'));
-        var $priceH4 = $(document.createElement('h4'));
-        var $typeH4 = $(document.createElement('h4'));
-        var $flavorH4 = $(document.createElement('h4'));
-        var $descriptionP = $(document.createElement('p'));
+        //intro row elements
+        var $tourDiv = $('<div>').addClass('tour');
+        var $distDiv = $('<div>').addClass('col-md-7');
+        var $distA = $('<a>').attr('href', '#');
+        var $distImg = $('<img>').addClass('img-responsive').attr('src', IMAGE_PATH + tour["distillery-image"]);
+        var $descriptionDiv = $('<div>').addClass('col-md-5');
+        var $whiskey = $('<h3>').text('Name: ' + tour.whiskey);
+        var $price = $('<h4>').text('Price: ' + tour.price);
+        var $type = $('<h4>').text('Type: ' + tour.type);
+        var $flavor = $('<h4>').text('Flavor: ' + tour.flavor);
+        var $description = $('<p>').text(tour.description);
 
-        $whiskeyH3.text('Name: ' + tour.whiskey);
-        $priceH4.text('Price: ' + tour.price);
-        $typeH4.text('Type: ' + tour.type);
-        $flavorH4.text('Flavor: ' + tour.flavor);
-        $descriptionP.text(tour.description);
-        //appending image to a tag, then appending a to div
-        $distA.append($distImg);
-        $distDiv.append($distA);
-        //appending description. append from first element
-        $descriptionDiv.append($whiskeyH3);
-        $descriptionDiv.append($typeH4);
-        $descriptionDiv.append($priceH4);
-        $descriptionDiv.append($flavorH4);
-        $descriptionDiv.append($descriptionP);
-        $('#appendHere').hide().append($distDiv).append($descriptionDiv).fadeIn();
+        //appending intro image to a tag, then appending a to intro div
+        $distDiv.append($distA.append($distImg));
+
+        //appending intro description
+        $.each([$whiskey, $type, $price, $flavor, $description], function (i, el){
+            $descriptionDiv.append(el);
+        });
+        $tourDiv.append($distDiv).append($descriptionDiv);
+
+        //detail row elements
+        var $detailDiv = $('<div>').addClass('row');
+        var $tourInfoDiv = $('<div>').addClass('col-md-6');
+        var $cityInfoDiv = $('<div>').addClass('col-md-6');
+        var $tourImg = $('<img>').addClass('img-responsive').attr('src', IMAGE_PATH + tour["whiskey-image"]);
+        var $cityImg = $('<img>').addClass('img-responsive').attr('src', IMAGE_PATH + tour["location-image"]);
+        var $tourH1 = $('<h1>').text(tour["distillery-name"]);
+        var $cityH1 = $('<h1>').text(tour.location);
+
+        //append from first element
+        $('#appendHere').hide().append($tourDiv).fadeIn();
     });
 };
 
@@ -66,12 +65,9 @@ var displayTours = function(data) {
 //<!--<p>Description - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium veniam exercitationem expedita laborum at voluptate. Labore, voluptates totam at aut nemo deserunt rem magni pariatur quos perspiciatis atque eveniet unde.</p>-->
 //<!--</div>-->
 
-
-//I want the the tours object with my preloaded data to fade in over 1000 milliseconds once the scroll event listeners registers the position as greater than 200, and ONLY ONCE
-
 $(window).on('scroll', function(){
     if($(window).scrollTop() + $(window).height() == $(document).height()) {
-        var nextTours = getTours($('.tour').length, 4);
-        displayTours(nextTours);
+        //the first argument is the offset, the second argument is how many i want to load in
+        getTours($('.tour').length, 4);
     }
 });
