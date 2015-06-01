@@ -1,88 +1,20 @@
 {
-  "trip-planner": [
+  "tour": [
     {
-      "whiskey":[
-        {
-          "type": "",
-          "flavor": "",
-          "age": "",
-          "price": "",
-          "origin": "",
-          "description": "",
-          "image": "",
-          "ratings": "",
-          "tour": [
-            {
-              "price": "",
-              "description": "",
-              "ratings": ""
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "location": [
-        {
-          "region": "",
-          "country": "",
-          "city": "",
-          "description": "",
-          "image": "",
-          "lodging": [
-            {
-              "type": "",
-              "description": "",
-              "price": "",
-              "ratings": ""
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "activities": [
-        {
-          "image": "",
-          "description": "",
-          "nature": [
-            {
-              "type": "",
-              "price": "",
-              "description": "",
-              "ratings": "",
-              "image": ""
-            }
-          ],
-          "history": [
-            {
-              "type": "",
-              "price": "",
-              "description": "",
-              "ratings": "",
-              "image": ""
-            }
-          ],
-          "amusement": [
-            {
-              "type": "",
-              "price": "",
-              "description": "",
-              "ratings": "",
-              "image": ""
-            }
-          ],
-          "food": [
-            {
-              "type": "",
-              "price": "",
-              "description": "",
-              "ratings": "",
-              "image": ""
-            }
-          ]
-        }
-      ]
+      "whiskey": "Glenlivet",
+      "type": "Single-malt Scotch",
+      "flavor": "Sweet",
+      "price": "$30",
+      "location": "Scotland",
+      "description": "There is a cereally brightness to the flavor, developing out of the initial burn with notes of vanilla, spices, and brown sugar. Reminds me of hot oatmeal with brown sugar and cinnamon. There is something Bourbon-like about the dry notes, like a corn syrupy sweetness instead of a malty one, but it is a pleasant sweetness.",
+      "location-details": "",
+      "tour-details": "",
+      "activity-one": "",
+      "activity-two": "",
+      "activity-three": "",
+      "whiskey-image": "",
+      "location-image": "glenlivet.jpg",
+      "distillery-image": ""
     }
   ]
 }

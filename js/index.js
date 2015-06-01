@@ -11,13 +11,13 @@ $(function() {
 var IMAGE_PATH = 'images/';
 
 var listTabs = function(data) {
-    $.each(data, function (i, data) {
+    $.each(data, function (i, tour) {
         var $distDiv = $(document.createElement('div'));
         $distDiv.addClass('col-md-7');
         var $distA = $(document.createElement('a'));
         $distA.attr('href', '#');
         var $distImg = $(document.createElement('img'));
-        $distImg.addClass('img-responsive').attr('src', IMAGE_PATH + data["distillery-image"]);
+        $distImg.addClass('img-responsive').attr('src', IMAGE_PATH + tour["distillery-image"]);
         var $descriptionDiv = $(document.createElement('div'));
         $descriptionDiv.addClass('col-md-5');
         var $whiskeyH3 = $(document.createElement('h3'));
@@ -25,11 +25,11 @@ var listTabs = function(data) {
         var $typeH4 = $(document.createElement('h4'));
         var $descriptionP = $(document.createElement('p'));
 
-        $whiskeyH3.text(data.whiskey);
-        $priceH4.text(data.price);
-        $typeH4.text(data.type);
-        $descriptionP.text(data.description);
-        //appending image to a tag, then appending a to div, then prepending new div with a and image to div row
+        $whiskeyH3.text(tour.whiskey);
+        $priceH4.text(tour.price);
+        $typeH4.text(tour.type);
+        $descriptionP.text(tour.description);
+        //appending image to a tag, then appending a to div, then appending new div with a and image to div row
         $distA.append($distImg);
         $distDiv.append($distA);
         $('#appendHere').append($distDiv);
@@ -42,13 +42,37 @@ var listTabs = function(data) {
     })
 };
 
+//<div class="col-md-6">
+//<img class="img-responsive" src="images/hibiki-12.jpg">
+//<h1>The Whiskey</h1>
+//<p>Colour:  Aurulent (Gold-Coloured) or Melichrous (Honey-like).  Maybe Luteous (Golden-yellow).</p>
+//</div>
+//<div class="col-md-6">
+//<img class="img-responsive" src="images/osaka.jpg">
+//<h1>The City</h1>
+//<p>Description - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium veniam exercitationem expedita laborum at voluptate. Labore, voluptates totam at aut nemo deserunt rem magni pariatur quos perspiciatis atque eveniet unde.</p>
+//</div>
+
+
+var dropdown = function (data) {
+    $.each(data, function (i, tour){
+
+    })
+};
+ var tours;
 $.ajax({
     url: "https://api.mongolab.com/api/1/databases/whiskey/collections/whiskies",
     data: {
         apiKey: "LVnHGETiXJi3beH77dTNrrgbN54PPtB1",
         q: "{whiskey: {$exists: true}}"
     },
-    success: listTabs(data)
+    success: function(data) {
+        tours = data;
+    }
 });
-
-
+//I want the the tours object with my preloaded data to fade in over 1000 milliseconds once the scroll event listeners registers the position as greater than 200, and ONLY ONCE
+$(window).on('scroll', function(e){
+    if($(window).scrollTop() == 100) {
+        listTabs(tours);
+    }
+});
