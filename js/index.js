@@ -1,6 +1,20 @@
 /**
  * Created by ken on 5/26/15.
  */
+$(document).ready(function(){
+    $.ajax({
+        url: "https://api.mongolab.com/api/1/databases/whiskey/collections/whiskies",
+        data: {
+            apiKey: "LVnHGETiXJi3beH77dTNrrgbN54PPtB1",
+            q: "{whiskey: {$exists: true}}",
+            l: 1
+        },
+        success: function(data) {
+            displayTours(data);
+        }
+    })
+});
+
 var getTours = function(toursOffset, numOfTours) {
     $.ajax({
         url: "https://api.mongolab.com/api/1/databases/whiskey/collections/whiskies",
@@ -16,18 +30,18 @@ var getTours = function(toursOffset, numOfTours) {
     })
 };
 
-$(function(){
+$('#tags').on('keypress', function(){
+    var searchTerm = $('#tags').val();
     $.ajax({
         url: "https://api.mongolab.com/api/1/databases/whiskey/collections/whiskies",
         data: {
             apiKey: "LVnHGETiXJi3beH77dTNrrgbN54PPtB1",
-            q: "{whiskey: {$exists: true}}"
+            q: "{$or: [{whiskey: " + '/' + searchTerm + '/' + "}, { location: " + '/' + searchTerm + '/' + "}]}"
         },
-        success: $('#tags').on('click', function(){
-            var searchTerm = $(["name=search"]).val();
-        })
-    });
-
+        success: function(data) {
+            console.log(data);
+        }
+    })
 });
 
 var displayTours = function(data) {
