@@ -23,7 +23,7 @@ var displayTours = function(data) {
         var $tourDiv = $('<div>').addClass('tour');
         var $distDiv = $('<div>').addClass('col-md-7');
         var $distA = $('<a>').attr('href', '#');
-        var $distImg = $('<img>').addClass('img-responsive').attr('src', IMAGE_PATH + tour["distillery-image"]);
+        var $distImg = $('<img>').addClass('img-responsive').attr('src', IMAGE_PATH + tour["whiskey-image"]);
         var $descriptionDiv = $('<div>').addClass('col-md-5');
         var $whiskey = $('<h3>').text('Name: ' + tour.whiskey);
         var $price = $('<h4>').text('Price: ' + tour.price);
@@ -42,28 +42,23 @@ var displayTours = function(data) {
 
         //detail row elements
         var $detailDiv = $('<div>').addClass('row');
-        var $tourInfoDiv = $('<div>').addClass('col-md-6');
-        var $cityInfoDiv = $('<div>').addClass('col-md-6');
-        var $tourImg = $('<img>').addClass('img-responsive').attr('src', IMAGE_PATH + tour["whiskey-image"]);
+        var $tourInfoSection = $('<div>').addClass('col-md-5 col-md-offset-1');
+        var $cityInfoSection = $('<div>').addClass('col-md-5');
+        var $tourImg = $('<img>').addClass('img-responsive').attr('src', IMAGE_PATH + tour["distillery-image"]);
         var $cityImg = $('<img>').addClass('img-responsive').attr('src', IMAGE_PATH + tour["location-image"]);
-        var $tourH1 = $('<h1>').text(tour["distillery-name"]);
-        var $cityH1 = $('<h1>').text(tour.location);
+        var $tourName = $('<h1>').text(tour["distillery-name"]);
+        var $cityName = $('<h1>').text(tour.location);
+        var $tourDetails = $('<p>').text(tour["tour-details"]);
+        var $locationDetails = $('<p>').text(tour["location-details"]);
+
+        $tourInfoSection.append($tourImg).append($tourName).append($tourDetails);
+        $cityInfoSection.append($cityImg).append($cityName).append($locationDetails);
+        $detailDiv.append($tourInfoSection).append($cityInfoSection);
 
         //append from first element
-        $('#appendHere').hide().append($tourDiv).fadeIn();
+        $('#appendHere').hide().append($tourDiv).append($detailDiv).fadeIn();
     });
 };
-
-//<!--<div class="col-md-6">-->
-//<!--<img class="img-responsive" src="images/hibiki-12.jpg">-->
-//<!--<h1>The Whiskey</h1>-->
-//<!--<p>Colour:  Aurulent (Gold-Coloured) or Melichrous (Honey-like).  Maybe Luteous (Golden-yellow).</p>-->
-//<!--</div>-->
-//    <!--<div class="col-md-6">-->
-//    <!--<img class="img-responsive" src="images/osaka.jpg">-->
-//<!--<h1>The City</h1>-->
-//<!--<p>Description - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium veniam exercitationem expedita laborum at voluptate. Labore, voluptates totam at aut nemo deserunt rem magni pariatur quos perspiciatis atque eveniet unde.</p>-->
-//<!--</div>-->
 
 $(window).on('scroll', function(){
     if($(window).scrollTop() + $(window).height() == $(document).height()) {
