@@ -13,8 +13,22 @@ var getTours = function(toursOffset, numOfTours) {
         success: function(data) {
             displayTours(data);
         }
-    });
+    })
 };
+
+$(function(){
+    $.ajax({
+        url: "https://api.mongolab.com/api/1/databases/whiskey/collections/whiskies",
+        data: {
+            apiKey: "LVnHGETiXJi3beH77dTNrrgbN54PPtB1",
+            q: "{whiskey: {$exists: true}}"
+        },
+        success: $('#tags').on('click', function(){
+            var searchTerm = $(["name=search"]).val();
+        })
+    });
+
+});
 
 var displayTours = function(data) {
     var IMAGE_PATH = 'images/';
@@ -44,8 +58,10 @@ var displayTours = function(data) {
         var $detailDiv = $('<div>').addClass('row');
         var $tourInfoSection = $('<div>').addClass('col-md-5 col-md-offset-1');
         var $cityInfoSection = $('<div>').addClass('col-md-5');
-        var $tourImg = $('<img>').addClass('img-responsive').attr('src', IMAGE_PATH + tour["distillery-image"]);
-        var $cityImg = $('<img>').addClass('img-responsive').attr('src', IMAGE_PATH + tour["location-image"]);
+        var $tourImg = $('<img>').addClass('img-responsive')
+            .attr('src', IMAGE_PATH + tour["distillery-image"]);
+        var $cityImg = $('<img>').addClass('img-responsive')
+            .attr('src', IMAGE_PATH + tour["location-image"]);
         var $tourName = $('<h1>').text(tour["distillery-name"]);
         var $cityName = $('<h1>').text(tour.location);
         var $tourDetails = $('<p>').text(tour["tour-details"]);
@@ -66,3 +82,5 @@ $(window).on('scroll', function(){
         getTours($('.tour').length, 4);
     }
 });
+
+
