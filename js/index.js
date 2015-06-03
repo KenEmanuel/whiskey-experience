@@ -42,8 +42,7 @@ $('#tags').on('keypress', function(){
             '{type: {$regex: "' + searchTerm + '", $options: "i"}},' +
             '{flavor: {$regex: "' + searchTerm + '", $options: "i"}}' +
             ']' +
-            '}',
-            l:1
+            '}'
         },
         success: function(data) {
             if(searchTerm.length >= 2){
