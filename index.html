@@ -41,12 +41,6 @@
           <li>
             <a href="#">About</a>
           </li>
-          <li>
-            <a href="#">Services</a>
-          </li>
-          <li>
-            <a href="#">Contact</a>
-          </li>
         </ul>
       </div>
       <!-- /.navbar-collapse -->
@@ -56,10 +50,10 @@
   <!-- Page Content -->
   <div class="row">
     <div class="col-md-offset-3">
-      <div class="col-md-6">
+      <div class="col-md-8">
         <div class="input-group">
         <span class="input-group-btn">
-          <button class="btn btn-default" type="button">Search: </button>
+          <button class="btn btn-default disabled" type="button">Search: </button>
         </span>
           <input id="tags" type="text" class="form-control" placeholder="Search for...">
         </div>
@@ -121,28 +115,65 @@
       </div>
     </div>
     <div class="row" id="appendHere">
-      <!--<div class="col-md-7">-->
-      <!--<a href="#">-->
-      <!--<img class="img-responsive" src="images/yamazaki-dist.jpg" alt="">-->
-      <!--</a>-->
-      <!--</div>-->
-      <!--<div class="col-md-5">-->
-      <!--<h3></h3>-->
-      <!--<h4 id="type"></h4>-->
-      <!--<h4 id="price"></h4>-->
-      <!--<p>Description - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium veniam exercitationem expedita laborum at voluptate. Labore, voluptates totam at aut nemo deserunt rem magni pariatur quos perspiciatis atque eveniet unde.</p>-->
-      <!--<div class='row'>-->
-      <!--<div class="col-md-6">-->
-      <!--<img class="img-responsive" src="images/hibiki-12.jpg">-->
-      <!--<h1>The Whiskey</h1>-->
-      <!--<p>Colour:  Aurulent (Gold-Coloured) or Melichrous (Honey-like).  Maybe Luteous (Golden-yellow).</p>-->
-      <!--</div>-->
-      <!--<div class="col-md-6">-->
-      <!--<img class="img-responsive" src="images/osaka.jpg">-->
-      <!--<h1>The City</h1>-->
-      <!--<p>Description - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium veniam exercitationem expedita laborum at voluptate. Labore, voluptates totam at aut nemo deserunt rem magni pariatur quos perspiciatis atque eveniet unde.</p>-->
-      <!--</div>-->
-      <!--</div>-->
+      <div class="myTour">
+        <div class="col-md-7">
+          <a href="#">
+            <img class="img-responsive" src="images/hibiki.jpg" alt="">
+          </a>
+        </div>
+        <div class="col-md-5">
+          <h3>Hibiki</h3>
+          <h4 id="type">Scotch</h4>
+          <h4>Stuff</h4>
+          <h4 id="price">$80</h4>
+          <p>Description - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium veniam exercitationem expedita laborum at voluptate. Labore, voluptates totam at aut nemo deserunt rem magni pariatur quos perspiciatis atque eveniet unde.</p>
+        </div>
+      </div>
+      <div class='row myTarget'>
+        <div class="col-md-6">
+          <img class="img-responsive" src="images/yamazaki.jpg">
+          <h1>Tour Info</h1>
+          <p>Tour - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium veniam exercitationem expedita laborum at voluptate. Labore, voluptates totam at aut nemo deserunt rem magni pariatur quos perspiciatis atque eveniet unde.</p>
+        </div>
+        <div class="col-md-6">
+          <img class="img-responsive" src="images/osaka.jpg">
+          <h1>Osaka</h1>
+          <p>City - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium veniam exercitationem expedita laborum at voluptate. Labore, voluptates totam at aut nemo deserunt rem magni pariatur quos perspiciatis atque eveniet unde.</p>
+        </div>
+      </div>
+      <div class="col-md-offset-3 col-md-6">
+        <button type="button" class="btn btn-default btn-lg btn-block">Block level button</button>
+      </div>
+      <div class="row myForm">
+        <div class="col-md-6">
+          <form>
+            <h1>Available Activities</h1>
+            <div class="checkbox">
+              <label class="activity-box">
+                <input type="checkbox" value="50">
+                <a class="activity-title" tabindex="0" role="button" data-toggle="popover" data-trigger="hover" data-content="Hola. Soy Kenny">Activity one</a>
+              </label>
+            </div>
+            <div class="checkbox">
+              <label class="activity-box">
+                <input type="checkbox" value="70">
+                <a class="activity-title" tabindex="1" role="button" data-toggle="popover" data-trigger="hover" data-content="Javascript all day everyday.">Activity Two</a>
+              </label>
+            </div>
+            <div class="checkbox">
+              <label class="activity-box">
+                <input type="checkbox" value="60">
+                <a class="activity-title" tabindex="2" role="button" data-toggle="popover" data-trigger="hover" data-content="Hello my name is Kenny">Activity Three</a>
+              </label>
+            </div>
+          </form>
+        </div>
+        <div class="col-md-6">
+          <h1>Activity Cost</h1>
+          <div id="cost">
+          </div>
+        </div>
+      </div>
     </div>
 
     <hr>
@@ -152,7 +183,6 @@
           <p>Copyright &copy; Kenneth Emanuel 2015</p>
         </div>
       </div>
-
     </footer>
   </div>
 </div>
