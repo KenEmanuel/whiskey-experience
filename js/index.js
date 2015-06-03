@@ -1,19 +1,18 @@
 /**
  * Created by ken on 5/26/15.
  */
-$(document).ready(function(){
-    $.ajax({
-        url: "https://api.mongolab.com/api/1/databases/whiskey/collections/whiskies",
-        data: {
-            apiKey: "LVnHGETiXJi3beH77dTNrrgbN54PPtB1",
-            q: "{whiskey: {$exists: true}}",
-            l: 1
-        },
-        success: function(data) {
-            displayTours(data);
-        }
-    })
-});
+//$(document).ready(function(){
+//    $.ajax({
+//        url: "https://api.mongolab.com/api/1/databases/whiskey/collections/whiskies",
+//        data: {
+//            apiKey: "LVnHGETiXJi3beH77dTNrrgbN54PPtB1",
+//            q: '{whiskey: "Glenlivet"}'
+//        },
+//        success: function(data) {
+//            displayTours(data);
+//        }
+//    })
+//});
 
 var getTours = function(toursOffset, numOfTours) {
     $.ajax({
@@ -36,10 +35,21 @@ $('#tags').on('keypress', function(){
         url: "https://api.mongolab.com/api/1/databases/whiskey/collections/whiskies",
         data: {
             apiKey: "LVnHGETiXJi3beH77dTNrrgbN54PPtB1",
-            q: "{$or: [{whiskey: " + '/' + searchTerm + '/' + "}, { location: " + '/' + searchTerm + '/' + "}]}"
+            q: '{$or: [' +
+            '{whiskey: {$regex: "' + searchTerm + '", $options: "i"}},' +
+            '{location: {$regex: "' + searchTerm + '", $options: "i"}},' +
+            '{price: {$regex: "' + searchTerm + '", $options: "i"}},' +
+            '{type: {$regex: "' + searchTerm + '", $options: "i"}},' +
+            '{flavor: {$regex: "' + searchTerm + '", $options: "i"}}' +
+            ']' +
+            '}',
+            l:1
         },
         success: function(data) {
-            console.log(data);
+            if(searchTerm.length >= 2){
+                $('.tour, .target').detach();
+                displayTours(data);
+            }
         }
     })
 });
@@ -69,7 +79,7 @@ var displayTours = function(data) {
         $tourDiv.append($distDiv).append($descriptionDiv);
 
         //detail row elements
-        var $detailDiv = $('<div>').addClass('row');
+        var $detailDiv = $('<div>').addClass('row target');
         var $tourInfoSection = $('<div>').addClass('col-md-5 col-md-offset-1');
         var $cityInfoSection = $('<div>').addClass('col-md-5');
         var $tourImg = $('<img>').addClass('img-responsive')
@@ -92,8 +102,11 @@ var displayTours = function(data) {
 
 $(window).on('scroll', function(){
     if($(window).scrollTop() + $(window).height() == $(document).height()) {
-        //the first argument is the offset, the second argument is how many i want to load in
-        getTours($('.tour').length, 4);
+        var empty = $('#tags').val();
+        if(empty == '') {
+            //second if statement checks if search field has value. If not, the default ajax requests happens
+            getTours($('.tour').length, 4);
+        }
     }
 });
 
