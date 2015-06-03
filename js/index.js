@@ -1,18 +1,18 @@
 /**
  * Created by ken on 5/26/15.
  */
-//$(document).ready(function(){
-//    $.ajax({
-//        url: "https://api.mongolab.com/api/1/databases/whiskey/collections/whiskies",
-//        data: {
-//            apiKey: "LVnHGETiXJi3beH77dTNrrgbN54PPtB1",
-//            q: '{whiskey: "Glenlivet"}'
-//        },
-//        success: function(data) {
-//            displayTours(data);
-//        }
-//    })
-//});
+$(document).ready(function(){
+    $.ajax({
+        url: "https://api.mongolab.com/api/1/databases/whiskey/collections/whiskies",
+        data: {
+            apiKey: "LVnHGETiXJi3beH77dTNrrgbN54PPtB1",
+            q: '{whiskey: "Hibiki"}'
+        },
+        success: function(data) {
+            displayTours(data);
+        }
+    })
+});
 
 var getTours = function(toursOffset, numOfTours) {
     $.ajax({
@@ -24,6 +24,7 @@ var getTours = function(toursOffset, numOfTours) {
             l: numOfTours
         },
         success: function(data) {
+            $('#carousel').hide(1000);
             displayTours(data);
         }
     })
@@ -45,8 +46,9 @@ $('#tags').on('keypress', function(){
             '}'
         },
         success: function(data) {
+            $('#carousel').hide(1000);
             if(searchTerm.length >= 2){
-                $('.tour, .target').detach();
+                $('.tour, .target').remove();
                 displayTours(data);
             }
         }
@@ -103,7 +105,6 @@ $(window).on('scroll', function(){
     if($(window).scrollTop() + $(window).height() == $(document).height()) {
         var empty = $('#tags').val();
         if(empty == '') {
-            //second if statement checks if search field has value. If not, the default ajax requests happens
             getTours($('.tour').length, 4);
         }
     }
