@@ -109,24 +109,26 @@
 //});
 //
 //
-$(document).ready(function() {
+$(document).ready(function(){
     var options = {
         trigger : 'hover'
     };
     $('[data-toggle="popover"]').popover(options);
+    $('.myTarget').hide();
 });
 var total = $('<h3>');
 $('input:checkbox').on('change', function(){
     var price = 0;
-    if ($('input:checked') === false){
-        console.log('none checked');
+    if(!$('input:checked').length){
+        $('#cost > h3').remove();
     } else {
-    $.each($('input:checked'), function(i, item){
-        $('#cost').remove('h3');
-        price += parseInt($(item).attr('value'));
-        total.text(price);
-        $('#cost:last-child').remove('h3');
+        $.each($('input:checked'), function(i, item){
+            price += parseInt($(item).attr('value'));
+            total.text('$' + price);
         });
+        $('#cost').append(total);
     }
-    $('#cost').append(total);
+});
+$('#slideToggle').on('click', function(e){
+    $('.myTarget').slideToggle(1000);
 });
