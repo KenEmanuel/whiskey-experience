@@ -1,6 +1,4 @@
-///**
-// * Created by ken on 5/26/15.
-// */
+/*Created by ken on 5/26/15.*/
 //$(document).ready(function(){
 //    $.ajax({
 //        url: "https://api.mongolab.com/api/1/databases/whiskey/collections/whiskies",
@@ -112,19 +110,23 @@
 //
 //
 $(document).ready(function() {
-    options = {
+    var options = {
         trigger : 'hover'
     };
     $('[data-toggle="popover"]').popover(options);
 });
-
+var total = $('<h3>');
 $('input:checkbox').on('change', function(){
-    var cost = $('input:checked').attr('value');
-    var newCost = $('<h2>').addClass('total').append(cost);
-    $('#cost').append(newCost);
-
-    if($('input:checked') === false){
-        $('#cost').remove(newCost);
+    var price = 0;
+    if ($('input:checked') === false){
+        console.log('none checked');
+    } else {
+    $.each($('input:checked'), function(i, item){
+        $('#cost').remove('h3');
+        price += parseInt($(item).attr('value'));
+        total.text(price);
+        $('#cost:last-child').remove('h3');
+        });
     }
-
+    $('#cost').append(total);
 });
