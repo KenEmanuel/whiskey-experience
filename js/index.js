@@ -1,4 +1,10 @@
 /*Created by ken on 5/26/15.*/
+$(document).ready(function(){
+    if($(window).scrollTop() + $(window).height() == $(document).height()){
+        var $newHeight = $(document).height();
+        $('body').css('height', $newHeight + 3);
+    }
+});
 
 var getTours = function(toursOffset, numOfTours) {
     $.ajax({
