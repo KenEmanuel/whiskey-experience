@@ -96,8 +96,8 @@ var displayTours = function(data) {
         var $locationDetails = $('<p>').addClass('details')
             .text(tour["location-details"]);
         //setting up the detail section
-        $tourInfoSection.append($tourImg).append($tourName).append($tourDetails);
-        $cityInfoSection.append($cityImg).append($cityName).append($locationDetails);
+        $tourInfoSection.append($tourName).append($tourImg).append($tourDetails);
+        $cityInfoSection.append($cityName).append($cityImg).append($locationDetails);
 
         //setting up form div
         var $activityDiv = $('<div>').addClass('row myForm');
