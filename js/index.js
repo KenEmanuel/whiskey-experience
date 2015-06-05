@@ -1,23 +1,4 @@
 /*Created by ken on 5/26/15.*/
-//$(document).ready(function(){
-//    $.ajax({
-//        url: "https://api.mongolab.com/api/1/databases/whiskey/collections/whiskies",
-//        data: {
-//            apiKey: "LVnHGETiXJi3beH77dTNrrgbN54PPtB1",
-//            q: '{whiskey: "Hibiki"}'
-//        },
-//        success: function(data) {
-//            displayTours(data);
-//            var options = {
-//                trigger : 'hover'
-//            };
-//            $('[data-toggle="popover"]').popover(options);
-//            //$('#slideToggle').on('click', function(){
-//            //    $('.myTarget').slideToggle(1000);
-//            //});
-//        }
-//    })
-//});
 
 var getTours = function(toursOffset, numOfTours) {
     $.ajax({
@@ -36,23 +17,6 @@ var getTours = function(toursOffset, numOfTours) {
                 trigger : 'hover'
             };
             $('[data-toggle="popover"]').popover(options);
-            //$('#slideToggle').unbind().click( function(){
-            //    $('.target').slideToggle(1000);
-            //})
-            //var total = $('<h3>');
-            //$('input:checkbox').on('change', function(){
-            //    var price = 0;
-            //    if(!$('input:checked').length){
-            //        $('#cost > h3').remove();
-            //    } else {
-            //        $('#cost > h3').remove();
-            //        $.each($('input:checked'), function(i, item){
-            //            price += parseInt($(item).attr('value'));
-            //            total.text('$' + price);
-            //        });
-            //        $('#cost').append(total);
-            //    }
-            //});
         }
     })
 };
@@ -73,7 +37,7 @@ $('#tags').on('keypress', function(){
             '}'
         },
         success: function(data) {
-            $('#carousel').hide(1000);
+            //$('#carousel').hide(1000);
             $('.col-md-offset-4 > button, .content').remove();
             if(searchTerm.length >= 2){
                 $('.tour, .target').remove();
@@ -83,19 +47,6 @@ $('#tags').on('keypress', function(){
                 trigger : 'hover'
             };
             $('[data-toggle="popover"]').popover(options);
-            //var total = $('<h3>');
-            //$('input:checkbox').on('change', function(){
-            //    var price = 0;
-            //    if(!$('input:checked').length){
-            //        $('#cost > h3').remove();
-            //    } else {
-            //        $.each($('input:checked'), function(i, item){
-            //            price += parseInt($(item).attr('value'));
-            //            total.text('$' + price);
-            //        });
-            //        $('#cost').append(total);
-            //    }
-            //});
         }
     })
 });
@@ -124,14 +75,6 @@ var displayTours = function(data) {
             $descriptionDiv.append(el);
         });
         $tourDiv.append($distDiv).append($descriptionDiv);
-
-        //button div
-        //var $buttonDiv = $('<div>').addClass('col-md-offset-4 col-md-4');
-        //var $button = $('<button>').attr('id', 'slideToggle')
-        //    .addClass('btn btn-default btn-lg btn-block')
-        //    .attr('type', 'button');
-        //$button.text('Detailed Information');
-        //$buttonDiv.append($button);
 
         //detail row elements
         var $hiddenDiv = $('<div>').addClass('target');
@@ -179,14 +122,6 @@ var displayTours = function(data) {
 
         $formDiv.append($form);
         $activityDiv.append($formDiv);
-        //
-        //var $budgetDiv = $('<div>').addClass('col-md-6');
-        //var $budgetH1 = $('<h1>').text('Sample Budget');
-        //var $budget = $('<div>').attr('id', 'cost');
-        //
-        //$budgetDiv.append($budgetH1).append($budget);
-        //
-        //$activityDiv.append($budgetDiv);
 
         //appending to the whole containing div
         $detailDiv.append($tourInfoSection)
@@ -198,8 +133,7 @@ var displayTours = function(data) {
         //append from first element
         $('#appendHere').hide().append($all)
             .fadeIn();
-        //add in below only if I want a button
-        //.append($buttonDiv)
+
         var total = $('<h3>');
         $('input:checkbox').on('change', function(){
             var price = 0;
@@ -225,10 +159,3 @@ $(window).on('scroll', function(){
         }
     }
 });
-
-//if(!$('#cost > h3').text().length){
-//    $('#cost').hide();
-//} else if ($('#cost > h3').text().length > 0){
-//    $('#cost').show();
-//}
-
