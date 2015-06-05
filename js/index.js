@@ -1,8 +1,5 @@
 /*Created by ken on 5/26/15.*/
 $(document).ready(function() {
-    var $newHeight = $(document).height();
-    $('body').css('height', $newHeight + 30);
-
     var displayTours = function(data) {
         var IMAGE_PATH = 'images/';
         $.each(data, function (i, tour) {
@@ -110,4 +107,6 @@ $(document).ready(function() {
             }
         }
     });
+    var $newHeight = $(document).height();
+    $('body').css('height', $newHeight + 30);
 });
