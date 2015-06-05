@@ -111,6 +111,7 @@ var displayTours = function(data) {
             var $checkDiv = $('<div>').addClass('checkbox');
             var $label = $('<label>').addClass('activity-box');
             var $input = $('<input>').attr('type', 'checkbox');
+            $input.attr('data-tour-name', tour.activity[k]["activity-name"]);
             var $inputA = $('<a>').attr('tabindex', k)
                 .addClass('activity-title')
                 .attr('role', 'button')
@@ -152,10 +153,11 @@ var displayTours = function(data) {
             } else {
                 $('#cost > h3').remove();
                 $.each($('input:checked'), function(i, item){
+                    console.log(item);
                     price += parseInt($(item).attr('value'));
                     total.text('Sample Budget: ' + '$' + price);
                 });
-                $('#cost').append(total);
+                $('#cart').append(total);
             }
         });
     });
