@@ -8,6 +8,7 @@
 }
 body {
     background-color: #000000;
+    height: 1200px;
 }
 button:active {
     border-color: whitesmoke;
