@@ -99,67 +99,15 @@ var displayTours = function(data) {
         $tourInfoSection.append($tourName).append($tourImg).append($tourDetails);
         $cityInfoSection.append($cityName).append($cityImg).append($locationDetails);
 
-        //setting up form div
-        var $activityDiv = $('<div>').addClass('row myForm');
-        var $formDiv = $('<div>').addClass('col-md-6');
-        var $form = $('<form>');
-        var $formH1 = $('<h1>').text('Sample Activities');
-
-        $form.append($formH1);
-
-        for (var k=0; k < tour.activity.length; k++) {
-            var $checkDiv = $('<div>').addClass('checkbox');
-            var $label = $('<label>').addClass('activity-box');
-            var $input = $('<input>').attr('type', 'checkbox');
-            $input.attr('data-tour-name', tour.activity[k]["activity-name"]);
-            var $inputA = $('<a>').attr('tabindex', k)
-                .addClass('activity-title')
-                .attr('role', 'button')
-                .attr('data-toggle', 'popover')
-                .attr('data-trigger', 'hover');
-                $input.attr('value', tour.activity[k]["activity-cost"]);
-                $inputA.attr('data-content', tour.activity[k]["activity-description"])
-                    .text(tour.activity[k]["activity-name"]);
-                $label.append($input).append($inputA);
-                $checkDiv.append($label);
-                $form.append($checkDiv);
-            }
-
-        $formDiv.append($form);
-
-        var $textDiv = $('<div>').addClass('col-md-6');
-        var $text = $('<p>');
-        $text.text(tour.lorem);
-        $textDiv.append($text);
-
-        $activityDiv.append($formDiv).append($textDiv);
-
-        //appending to the whole containing div
         $detailDiv.append($tourInfoSection)
             .append($cityInfoSection);
 
-        $hiddenDiv.append($detailDiv).append($activityDiv);
+        $hiddenDiv.append($detailDiv);
         $all.append($tourDiv).append($hiddenDiv);
 
         //append from first element
         $('#appendHere').hide().append($all)
             .fadeIn();
-
-        var total = $('<h3>');
-        $('input:checkbox').on('change', function(){
-            var price = 0;
-            if(!$('input:checked').length){
-                $('#cart > h3').remove();
-            } else {
-                $('#cart > h3').remove();
-                $.each($('input:checked'), function(i, item){
-                    console.log(item);
-                    price += parseInt($(item).attr('value'));
-                    total.text('Sample Budget: ' + '$' + price);
-                });
-                $('#cart').append(total);
-            }
-        });
     });
 };
 
