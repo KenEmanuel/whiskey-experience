@@ -1,22 +1,23 @@
 /*Created by ken on 5/26/15.*/
-$(document).ready(function(){
-    $.ajax({
-        url: "https://api.mongolab.com/api/1/databases/whiskey/collections/whiskies",
-        data: {
-            apiKey: "LVnHGETiXJi3beH77dTNrrgbN54PPtB1",
-            q: '{whiskey: "Hibiki"}'
-        },
-        success: function(data) {
-            displayTours(data);
-        }
-    });
-    var options = {
-        trigger : 'hover'
-    };
-    $('[data-toggle="popover"]').popover(options);
-});
-
-console.log($('[data-toggle="popover"]'));
+//$(document).ready(function(){
+//    $.ajax({
+//        url: "https://api.mongolab.com/api/1/databases/whiskey/collections/whiskies",
+//        data: {
+//            apiKey: "LVnHGETiXJi3beH77dTNrrgbN54PPtB1",
+//            q: '{whiskey: "Hibiki"}'
+//        },
+//        success: function(data) {
+//            displayTours(data);
+//            var options = {
+//                trigger : 'hover'
+//            };
+//            $('[data-toggle="popover"]').popover(options);
+//            //$('#slideToggle').on('click', function(){
+//            //    $('.myTarget').slideToggle(1000);
+//            //});
+//        }
+//    })
+//});
 
 var getTours = function(toursOffset, numOfTours) {
     $.ajax({
@@ -29,7 +30,29 @@ var getTours = function(toursOffset, numOfTours) {
         },
         success: function(data) {
             $('#carousel').hide(1000);
+            $('#newContent').remove();
             displayTours(data);
+            var options = {
+                trigger : 'hover'
+            };
+            $('[data-toggle="popover"]').popover(options);
+            //$('#slideToggle').unbind().click( function(){
+            //    $('.target').slideToggle(1000);
+            //})
+            //var total = $('<h3>');
+            //$('input:checkbox').on('change', function(){
+            //    var price = 0;
+            //    if(!$('input:checked').length){
+            //        $('#cost > h3').remove();
+            //    } else {
+            //        $('#cost > h3').remove();
+            //        $.each($('input:checked'), function(i, item){
+            //            price += parseInt($(item).attr('value'));
+            //            total.text('$' + price);
+            //        });
+            //        $('#cost').append(total);
+            //    }
+            //});
         }
     })
 };
@@ -51,10 +74,28 @@ $('#tags').on('keypress', function(){
         },
         success: function(data) {
             $('#carousel').hide(1000);
+            $('.col-md-offset-4 > button, .content').remove();
             if(searchTerm.length >= 2){
                 $('.tour, .target').remove();
                 displayTours(data);
             }
+            var options = {
+                trigger : 'hover'
+            };
+            $('[data-toggle="popover"]').popover(options);
+            //var total = $('<h3>');
+            //$('input:checkbox').on('change', function(){
+            //    var price = 0;
+            //    if(!$('input:checked').length){
+            //        $('#cost > h3').remove();
+            //    } else {
+            //        $.each($('input:checked'), function(i, item){
+            //            price += parseInt($(item).attr('value'));
+            //            total.text('$' + price);
+            //        });
+            //        $('#cost').append(total);
+            //    }
+            //});
         }
     })
 });
@@ -63,7 +104,8 @@ var displayTours = function(data) {
     var IMAGE_PATH = 'images/';
     $.each(data, function (i, tour) {
         //intro row elements
-        var $tourDiv = $('<div>').addClass('tour');
+        var $all = $('<div>').addClass('tour');
+        var $tourDiv = $('<div>').addClass('content');
         var $distDiv = $('<div>').addClass('col-md-7');
         var $distA = $('<a>').attr('href', '#');
         var $distImg = $('<img>').addClass('img-responsive').attr('src', IMAGE_PATH + tour["whiskey-image"]);
@@ -84,15 +126,15 @@ var displayTours = function(data) {
         $tourDiv.append($distDiv).append($descriptionDiv);
 
         //button div
-        var $buttonDiv = $('<div>').addClass('col-md-offset-4 col-md-4');
-        var $button = $('<button>').attr('id', 'slideToggle')
-            .addClass('btn btn-default btn-lg btn-block')
-            .attr('type', 'button');
-        $button.text('Detailed Information');
-        $buttonDiv.append($button);
+        //var $buttonDiv = $('<div>').addClass('col-md-offset-4 col-md-4');
+        //var $button = $('<button>').attr('id', 'slideToggle')
+        //    .addClass('btn btn-default btn-lg btn-block')
+        //    .attr('type', 'button');
+        //$button.text('Detailed Information');
+        //$buttonDiv.append($button);
 
         //detail row elements
-        var $hiddenDiv = $('<div>').addClass('myTarget');
+        var $hiddenDiv = $('<div>').addClass('target');
         var $detailDiv = $('<div>').addClass('row');
         var $tourInfoSection = $('<div>').addClass('col-md-6');
         var $cityInfoSection = $('<div>').addClass('col-md-6');
@@ -112,7 +154,7 @@ var displayTours = function(data) {
 
         //setting up form div
         var $activityDiv = $('<div>').addClass('row myForm');
-        var $formDiv = $('<div>').addClass('col-md-6');
+        var $formDiv = $('<div>').addClass('col-md-offset-4 col-md-4');
         var $form = $('<form>');
         var $formH1 = $('<h1>').text('Sample Activities');
 
@@ -122,35 +164,56 @@ var displayTours = function(data) {
             var $checkDiv = $('<div>').addClass('checkbox');
             var $label = $('<label>').addClass('activity-box');
             var $input = $('<input>').attr('type', 'checkbox');
-            var $inputA = $('<a>').addClass('activity-title')
-                .attr('tabindex', k)
+            var $inputA = $('<a>').attr('tabindex', k)
+                .addClass('activity-title')
                 .attr('role', 'button')
                 .attr('data-toggle', 'popover')
                 .attr('data-trigger', 'hover');
-            $.each(tour.activity, function(i, act){
-                $input.attr('value', act["activity-cost"]);
-                $inputA.attr('data-content', act["activity-description"])
-                    .text(act["activity-name"]);
-            });
-            $label.append($input).append($inputA);
-            $checkDiv.append($label);
-            $form.append($checkDiv);
-        }
+                $input.attr('value', tour.activity[k]["activity-cost"]);
+                $inputA.attr('data-content', tour.activity[k]["activity-description"])
+                    .text(tour.activity[k]["activity-name"]);
+                $label.append($input).append($inputA);
+                $checkDiv.append($label);
+                $form.append($checkDiv);
+            }
 
         $formDiv.append($form);
         $activityDiv.append($formDiv);
+        //
+        //var $budgetDiv = $('<div>').addClass('col-md-6');
+        //var $budgetH1 = $('<h1>').text('Sample Budget');
+        //var $budget = $('<div>').attr('id', 'cost');
+        //
+        //$budgetDiv.append($budgetH1).append($budget);
+        //
+        //$activityDiv.append($budgetDiv);
 
         //appending to the whole containing div
         $detailDiv.append($tourInfoSection)
             .append($cityInfoSection);
 
         $hiddenDiv.append($detailDiv).append($activityDiv);
+        $all.append($tourDiv).append($hiddenDiv);
 
         //append from first element
-        $('#appendHere').hide().append($tourDiv)
-            .append($buttonDiv)
-            .append($hiddenDiv)
+        $('#appendHere').hide().append($all)
             .fadeIn();
+        //add in below only if I want a button
+        //.append($buttonDiv)
+        var total = $('<h3>');
+        $('input:checkbox').on('change', function(){
+            var price = 0;
+            if(!$('input:checked').length){
+                $('#cost > h3').remove();
+            } else {
+                $('#cost > h3').remove();
+                $.each($('input:checked'), function(i, item){
+                    price += parseInt($(item).attr('value'));
+                    total.text('Sample Budget: ' + '$' + price);
+                });
+                $('#cost').append(total);
+            }
+        });
     });
 };
 
@@ -163,21 +226,9 @@ $(window).on('scroll', function(){
     }
 });
 
-var total = $('<h3>');
+//if(!$('#cost > h3').text().length){
+//    $('#cost').hide();
+//} else if ($('#cost > h3').text().length > 0){
+//    $('#cost').show();
+//}
 
-$('input:checkbox').on('change', function(){
-    var price = 0;
-    if(!$('input:checked').length){
-        $('#cost > h3').remove();
-    } else {
-        $.each($('input:checked'), function(i, item){
-            price += parseInt($(item).attr('value'));
-            total.text('$' + price);
-        });
-        $('#cost').append(total);
-    }
-});
-
-$('#slideToggle').on('click', function(){
-    $('.myTarget').slideToggle(1000);
-});

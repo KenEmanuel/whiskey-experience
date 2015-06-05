@@ -7,7 +7,10 @@
     src: url('OpenSans-Regular.ttf');
 }
 body {
-    background-color: black;
+    background-color: #000000;
+}
+button:active {
+    border-color: whitesmoke;
 }
 h1,
 h2,
@@ -17,19 +20,57 @@ h5,
 h6,
 p {
     color: white;
+    font-family: open-sans, sans-serif;
+}
+h1 {
+    text-align: center;
 }
 img {
-    -webkit-border-radius: 15px;
-    -moz-border-radius: 15px;
-    border-radius: 15px;
     margin: 10px;
 }
 h1,
 h3 {
     font-family: rosarivo-regular, serif;
 }
-nav {
-    background-color: #f0c753;
+img {
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+}
+p {
+    font-size: 1.2em;
+}
+.activity-box {
+    font-size: 1.2em;
+    margin-top: 10px;
+}
+.activity-title {
+    color: white;
+    font-size: 1.2em;
+}
+.checkbox {
+    margin-left: 25%;
+}
+.content {
+    border-bottom: 1px solid white;
+    border-top: 1px solid white;
+    background-color: #333333;
+}
+.details {
+    margin-left: 5%;
+    margin-right: 5%;
+    padding-bottom: 20px;
+}
+.item > img{
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+}
+/*.target {*/
+    /*display: none;*/
+/*}*/
+.popover {
+    width: 300px;
 }
 #effect {
     display: none;
@@ -38,4 +79,22 @@ nav {
     padding: 0.4em;
     position: relative;
     background: #fff;
+}
+#cost {
+    border: 1px solid white;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    width: 25%;
+    margin-left: 75%;
+    background-color: black;
+
+}
+#cost > h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-family: open-sans, sans-serif;
+}
+#copyright {
+    text-align: center;
 }
