@@ -30,7 +30,7 @@ img {
 }
 h1,
 h3 {
-    font-family: rosarivo-regular, serif;
+    font-family: Helvetica, sans-serif;
 }
 img {
     display: block;
@@ -65,9 +65,6 @@ p {
     margin-right: auto;
     margin-left: auto;
 }
-/*.target {*/
-    /*display: none;*/
-/*}*/
 .popover {
     width: 300px;
 }
@@ -79,11 +76,13 @@ p {
     position: relative;
     background: #fff;
 }
-#cost {
+#cart {
     /*border: 1px solid white;*/
     width: 20%;
     margin-left: 80%;
-    background-color: black;
+    background-color: darkgray;
+    z-index: 2;
+    position: fixed;
 
 }
 #cost > h3 {

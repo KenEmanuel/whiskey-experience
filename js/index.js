@@ -149,9 +149,9 @@ var displayTours = function(data) {
         $('input:checkbox').on('change', function(){
             var price = 0;
             if(!$('input:checked').length){
-                $('#cost > h3').remove();
+                $('#cart > h3').remove();
             } else {
-                $('#cost > h3').remove();
+                $('#cart > h3').remove();
                 $.each($('input:checked'), function(i, item){
                     console.log(item);
                     price += parseInt($(item).attr('value'));
