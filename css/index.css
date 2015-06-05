@@ -78,8 +78,8 @@ p {
 }
 #cart {
     /*border: 1px solid white;*/
-    width: 20%;
-    margin-left: 80%;
+    width: 30%;
+    margin-left: 70%;
     background-color: darkgray;
     z-index: 2;
     position: fixed;
