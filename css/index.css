@@ -53,7 +53,6 @@ p {
 }
 .content {
     border-bottom: 1px solid white;
-    border-top: 1px solid white;
     background-color: #333333;
 }
 .details {
@@ -81,10 +80,7 @@ p {
     background: #fff;
 }
 #cost {
-    border: 1px solid white;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
+    /*border: 1px solid white;*/
     width: 20%;
     margin-left: 80%;
     background-color: black;
@@ -97,4 +93,8 @@ p {
 }
 #copyright {
     text-align: center;
+}
+#search {
+    border: 0;
+    background-color: black;
 }
