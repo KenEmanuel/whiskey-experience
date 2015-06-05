@@ -60,7 +60,7 @@ var displayTours = function(data) {
     $.each(data, function (i, tour) {
         //intro row elements
         var $all = $('<div>').addClass('tour');
-        var $tourDiv = $('<div>').addClass('content');
+        var $tourDiv = $('<div>');
         var $distDiv = $('<div>').addClass('col-md-7');
         var $distA = $('<a>').attr('href', '#');
         var $distImg = $('<img>').addClass('img-responsive').attr('src', IMAGE_PATH + tour["whiskey-image"]);
