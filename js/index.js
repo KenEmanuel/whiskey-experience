@@ -10,19 +10,23 @@ var getTours = function(toursOffset, numOfTours) {
             l: numOfTours
         },
         success: function(data) {
-            $('#carousel').hide(1000);
             $('#newContent').remove();
             displayTours(data);
             var options = {
                 trigger : 'hover'
             };
             $('[data-toggle="popover"]').popover(options);
+        },
+        complete: function() {
+            $('#carousel').hide(1000);
         }
     })
 };
 
 $('#tags').on('keypress', function(){
     var searchTerm = $('#tags').val();
+    $('#carousel').hide(1000);
+    $('#newContent').remove();
     $.ajax({
         url: "https://api.mongolab.com/api/1/databases/whiskey/collections/whiskies",
         data: {
@@ -37,7 +41,7 @@ $('#tags').on('keypress', function(){
             '}'
         },
         success: function(data) {
-            //$('#carousel').hide(1000);
+
             $('.col-md-offset-4 > button, .content').remove();
             if(searchTerm.length >= 2){
                 $('.tour, .target').remove();
@@ -97,7 +101,7 @@ var displayTours = function(data) {
 
         //setting up form div
         var $activityDiv = $('<div>').addClass('row myForm');
-        var $formDiv = $('<div>').addClass('col-md-offset-4 col-md-4');
+        var $formDiv = $('<div>').addClass('col-md-6');
         var $form = $('<form>');
         var $formH1 = $('<h1>').text('Sample Activities');
 
@@ -121,7 +125,13 @@ var displayTours = function(data) {
             }
 
         $formDiv.append($form);
-        $activityDiv.append($formDiv);
+
+        var $textDiv = $('<div>').addClass('col-md-6');
+        var $text = $('<p>');
+        $text.text(tour.lorem);
+        $textDiv.append($text);
+
+        $activityDiv.append($formDiv).append($textDiv);
 
         //appending to the whole containing div
         $detailDiv.append($tourInfoSection)
