@@ -2,12 +2,14 @@
     font-family: 'open-sans';
     src: url('OpenSans-Regular.ttf');
 }
-body {
-    background-color: #000000;
-}
+body { background-color: #000000; }
 h1,
+h3 {
+    color: white;
+    font-family: Helvetica, sans-serif;
+    text-align: center;
+}
 h2,
-h3,
 h4,
 h5,
 h6,
@@ -15,23 +17,35 @@ p {
     color: white;
     font-family: open-sans, sans-serif;
 }
-h1 {
-    text-align: center;
-}
-img {
-    margin: 10px;
-}
-h1,
-h3 {
-    font-family: Helvetica, sans-serif;
-}
 img {
     display: block;
-    margin-right: auto;
-    margin-left: auto;
+    margin: 10px auto;
 }
 p {
     font-size: 1.2em;
+}
+.carousel-fade .carousel-inner .item {
+    opacity: 0;
+    transition-property: opacity;
+}
+.carousel-fade .carousel-inner .active {
+    opacity: 1;
+}
+.carousel-fade .carousel-inner .active.left,
+.carousel-fade .carousel-inner .active.right {
+    left: 0;
+    opacity: 0;
+    z-index: 1;
+}
+.carousel-fade .carousel-inner .next.left,
+.carousel-fade .carousel-inner .prev.right {
+    opacity: 1;
+}
+.carousel-fade .carousel-control {
+    z-index: 2;
+}
+.col-md-5 > h1 {
+    text-align: left;
 }
 .content {
     border-bottom: 1px solid white;
@@ -42,13 +56,14 @@ p {
     margin-right: 5%;
     padding-bottom: 20px;
 }
-.item > img{
-    display: block;
-    margin-right: auto;
-    margin-left: auto;
-}
 .page-header {
     margin-top: 0;
+}
+.tour {
+    margin-top: 40px;
+}
+#copyright {
+    text-align: center;
 }
 #effect {
     display: none;
@@ -57,11 +72,4 @@ p {
     padding: 0.4em;
     position: relative;
     background: #fff;
-}
-#copyright {
-    text-align: center;
-}
-#search {
-    border: 0;
-    background-color: black;
 }
