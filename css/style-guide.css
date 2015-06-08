@@ -1,21 +1,15 @@
 @font-face {
-    font-family: 'rosarivo-regular';
-    src: url('Rosarivo-Regular.otf');
-}
-@font-face {
     font-family: 'open-sans';
     src: url('OpenSans-Regular.ttf');
 }
-h2 {
-    color: #303030;
-}
+h2 { color: #000; }
 p {
     padding-top: 90px;
     padding-left: 70px;
     color: #efefef;
 }
 #color-one {
-    background-color: #494ea7;
+    background-color: #000;
     height: 200px;
     width: 200px;
     -webkit-border-radius: 50%;
@@ -23,24 +17,13 @@ p {
     border-radius: 50%;
 }
 #color-two {
-    background-color: #f0c753;
+    background-color: #fff;
     height: 200px;
     width: 200px;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
     border-radius: 50%;
+    border: 1px solid black;
 }
-#color-three{
-    background-color: #303030;
-    height: 200px;
-    width: 200px;
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-    border-radius: 50%;
-}
-#font-one {
-    font-family: rosarivo-regular, serif;
-}
-#font-two {
-    font-family: open-sans, sans-serif;
-}
+#font-one { font-family: Helvetica, sans-serif; }
+#font-two { font-family: open-sans, sans-serif; }

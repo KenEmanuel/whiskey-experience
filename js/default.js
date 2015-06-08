@@ -1,5 +1,6 @@
 /*Created by ken on 5/26/15.*/
 $(document).ready(function() {
+
     var displayTours = function(data) {
         var IMAGE_PATH = 'images/';
         $.each(data, function (i, tour) {
@@ -50,7 +51,7 @@ $(document).ready(function() {
             $all.append($tour)
                 .append($target);
             //append from first element
-            $('#appendHere').hide()
+            $('#mainContent').hide()
                 .append($all)
                 .fadeIn();
         });
@@ -101,12 +102,13 @@ $(document).ready(function() {
 
     $(window).on('scroll', function() {
         if($(window).scrollTop() + $(window).height() == $(document).height()) {
-            var empty = $('#search').val();
-            if(empty == '') {
+            var search = $('#search').val();
+            if(search == '') {
                 getTours($('.tour').length, 4);
             }
         }
     });
+
     var $newHeight = $(document).height();
     $('body').css('height', $newHeight + 30);
 });
