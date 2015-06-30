@@ -61,7 +61,7 @@ $(document).ready(function() {
         $.ajax({
             url: "https://api.mongolab.com/api/1/databases/whiskey/collections/whiskies",
             data: {
-                apiKey: "LVnHGETiXJi3beH77dTNrrgbN54PPtB1",
+                apiKey: //enter API key here,
                 q: "{whiskey: {$exists: true}}",
                 sk: toursOffset,
                 l: numOfTours
@@ -81,7 +81,7 @@ $(document).ready(function() {
         $.ajax({
             url: "https://api.mongolab.com/api/1/databases/whiskey/collections/whiskies",
             data: {
-                apiKey: "LVnHGETiXJi3beH77dTNrrgbN54PPtB1",
+                apiKey: //enter API Key here,
                 q: '{$or: [' +
                 '{whiskey: {$regex: "' + searchTerm + '", $options: "i"}},' +
                 '{location: {$regex: "' + searchTerm + '", $options: "i"}},' +

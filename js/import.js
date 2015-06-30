@@ -262,7 +262,7 @@ var tours = {
 $.each(tours.whiskey, function(i, whiskey) {
     console.log(whiskey);
     $.ajax({
-            url: "https://api.mongolab.com/api/1/databases/whiskey/collections/whiskies?apiKey=LVnHGETiXJi3beH77dTNrrgbN54PPtB1",
+            url: //enter URL with API key here
             data: JSON.stringify(whiskey),
             type: "POST",
             contentType: "application/json"
